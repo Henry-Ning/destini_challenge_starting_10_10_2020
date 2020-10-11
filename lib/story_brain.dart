@@ -52,23 +52,30 @@ class StoryBrain {
       _storyNumber = 2;
     } else if (_storyNumber == 1 && choiceNumber == 2) {
       _storyNumber = 3;
+      restart();
     } else if (_storyNumber == 2 && choiceNumber == 1) {
       _storyNumber = 5;
+      restart();
     } else if (_storyNumber == 2 && choiceNumber == 2) {
       _storyNumber = 4;
+      restart();
     }
   }
 
+  void restart() {
+    _storyNumber = 0;
+  }
+
   String getStory() {
-    return _storyData[0].storyTitle;
+    return _storyData[_storyNumber].storyTitle;
   }
 
   String getChoice1() {
-    return _storyData[0].choice1;
+    return _storyData[_storyNumber].choice1;
   }
 
   String getChoice2() {
-    return _storyData[0].choice2;
+    return _storyData[_storyNumber].choice2;
   }
 }
 
