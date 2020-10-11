@@ -7,7 +7,7 @@ import 'story.dart';
 class StoryBrain {
   //TODO: Step 16 - Create a property called storyNumber which starts with a value of 0. This will be used to track which story the user is currently viewing.
 
-  int storyNumber = 0;
+  int _storyNumber = 0;
 
   List<Story> _storyData = [
     Story(
@@ -43,7 +43,21 @@ class StoryBrain {
 
   //TODO: Step 17 - Create a method called nextStory(), it should not have any outputs but it should have 1 input called choiceNumber which will be the choice number (int) made by the user.
 
-  void nextStory(int choiceNumber) {}
+  void nextStory(int choiceNumber) {
+    if (_storyNumber == 0 && choiceNumber == 1) {
+      _storyNumber = 2;
+    } else if (_storyNumber == 0 && choiceNumber == 2) {
+      _storyNumber = 1;
+    } else if (_storyNumber == 1 && choiceNumber == 1) {
+      _storyNumber = 2;
+    } else if (_storyNumber == 1 && choiceNumber == 2) {
+      _storyNumber = 3;
+    } else if (_storyNumber == 2 && choiceNumber == 1) {
+      _storyNumber = 5;
+    } else if (_storyNumber == 2 && choiceNumber == 2) {
+      _storyNumber = 4;
+    }
+  }
 
   String getStory() {
     return _storyData[0].storyTitle;
