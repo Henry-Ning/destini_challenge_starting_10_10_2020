@@ -52,12 +52,15 @@ class StoryBrain {
       _storyNumber = 2;
     } else if (_storyNumber == 1 && choiceNumber == 2) {
       _storyNumber = 3;
-      restart();
     } else if (_storyNumber == 2 && choiceNumber == 1) {
       _storyNumber = 5;
-      restart();
     } else if (_storyNumber == 2 && choiceNumber == 2) {
       _storyNumber = 4;
+    } else if (_storyNumber == 3 && choiceNumber == 1) {
+      restart();
+    } else if (_storyNumber == 4 && choiceNumber == 1) {
+      restart();
+    } else if (_storyNumber == 5 && choiceNumber == 1) {
       restart();
     }
   }
@@ -76,6 +79,14 @@ class StoryBrain {
 
   String getChoice2() {
     return _storyData[_storyNumber].choice2;
+  }
+
+  bool buttonShouldBeVisible() {
+    if (_storyNumber < 3) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
 
